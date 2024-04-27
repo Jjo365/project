@@ -1,53 +1,65 @@
-body{
-    background-image: url('img3.avif');
+body {
+  background-image: url('img3.avif');
+  background-size: cover;
+  background-position: center;
 }
+
 form {
-    width: 300px;
-    margin: 0 auto;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #f9f9f9;
-    margin-top: 150px;
+  width: 300px;
+  margin: 150px auto 0;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 label {
-    display: block;
-    margin-bottom: 5px;
+  display: block;
+  margin-bottom: 5px;
+  color: #333;
 }
 
 input[type="text"],
 input[type="password"],
 input[type="email"],
 input[type="submit"] {
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-    box-sizing: border-box;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
 }
 
 input[type="submit"] {
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    cursor: pointer;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease-out;
 }
 
 input[type="submit"]:hover {
-    background-color: #45a049;
+  background-color: #45a049;
 }
+
 .login {
-    border: 2px solid #333;
-    padding: 10px;
-    width: 150px;
-    text-align: center;
-    border-radius: 5px;
-    background-color: #f0f0f0;
+  border: 2px solid #333;
+  padding: 10px;
+  width: 150px;
+  text-align: center;
+  border-radius: 5px;
+  background-color: #f0f0f0;
 }
 
 .login a {
-    text-decoration: none;
-    color: #333;
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+  transition: color 0.3s ease-out;
+}
+
+.login a:hover {
+  color: #45a049;
 }
