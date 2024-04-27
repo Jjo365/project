@@ -52,7 +52,7 @@ if(isset($_POST['btnsubmit'])) {
 
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
     <meta charset="UTF-8">
@@ -67,9 +67,9 @@ if(isset($_POST['btnsubmit'])) {
 <form action="#" method="post">
 <center><h2>Sign-up</h2></center>
     <label for="username">Username:</label><br>
-    <input type="text" id="username" name="username"><br>
+    <input type="text" id="username" name="username" placeholder="enter your username"><br>
     <label for="password">Password:</label><br>
-    <input type="password" id="password" name="password"><br>
+    <input type="password" id="password" name="password" placeholder="enter your password"><br>
     
     <input type="submit" name="btnsubmit" value="Sign-up">
     <a href="index.html">Return to website</a><br><a href="login.php">Return to login</a>
