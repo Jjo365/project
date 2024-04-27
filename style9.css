@@ -1,10 +1,67 @@
-/* CSS for the REPAIR Form */
+/* Global styles */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+    background-color: #f0f0f0;
+    color: #1d1b1b;
 }
 
+/* Header */
+header {
+    background-color: rgb(31, 31, 55);
+    color: #fff;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    width: 100px;
+}
+
+/* Navigation */
+nav {
+    background-color: #444;
+    text-align: center;
+    padding: 10px 0;
+}
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    margin-right: 20px;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    padding: 0 10px;
+    text-transform: uppercase;
+    font-size: 16px;
+    font-weight: 500;
+    transition: background-color 0.3s;
+}
+
+nav a:hover {
+    background-color: orange;
+}
+
+.active {
+    background-color: blue;
+}
+
+/* Section */
+section {
+    padding: 20px;
+}
+
+/* Form */
 h2 {
     margin-top: 20px;
 }
@@ -35,84 +92,9 @@ button {
 .hidden {
     display: none;
 }
-section{
-    color: black;
-}
-body {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-    background-size: cover;
-    background-position: center;
-    color: #1d1b1b;
-  
-}
-header {
-   
-    color: #fff;
-    text-align: center;
-    padding: 10px 0;
-}
 
-nav {
-    background-color: #444;
-    text-align: center;
-    padding: 10px 0;
-}
-
-nav a {
-    color: #fff;
-    text-decoration: none;
-    padding: 0 20px;
-}
-
-section {
-    padding: 20px;
-}
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-}
-
-header {
-    background-color: rgb(31, 31, 55);
-    color: #fff;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-}
-
-.logo {
-    width: 100px;
-}
-
-nav ul {
-    list-style-type: none;
-    display: flex;
-}
-
-nav ul li {
-    margin-right: 20px;
-}
-.link a{
-	text-decoration: none;
-	text-transform: uppercase;
-	font-size: 16px;
-	font-weight: 500;
-	color: #ffff;
-	padding: 10px;
-}
-.link a:hover{
-	background-color: orange;
-	font-size: 18px;
-}
-.active{
-	background-color: blue;
-	font-size: 18px;
-}
-.red{
+/* Error message */
+.red {
     background-color: #ff0000;
     color: #fff;
     padding: 10px;
@@ -120,23 +102,8 @@ nav ul li {
     border-radius: 5px;
     display: inline-block;
     margin-top: 10px;
-    margin-left: -500px;
 }
-.rede {
-    background-color: #ff0000;
-    color: #fff;
-    padding: 10px;
-    text-align: left;
-    border-radius: 5px;
-    display: inline-block;
-    margin-top: 10px;
-    margin-left: 10px;
-}
-.rede a {
-    text-decoration: none;
-    color: #fff;
-    text-align: left;
-}
+
 .red a {
     text-decoration: none;
     color: #fff;
@@ -145,8 +112,4 @@ nav ul li {
 
 .red:hover {
     background-color: #cc0000;
-
 }
-
-
-  

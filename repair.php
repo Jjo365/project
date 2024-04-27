@@ -16,53 +16,39 @@
     }
 
    
+function enregistrer_un_form() {
+    global $date, $fullname, $email, $device, $other, $devicename, $devicemodel, $specifications, $issues, $picture, $code;
 
-    function enregistrer_un_form() {
-        global $date, $fullname, $email, $device, $other, $devicename, $devicemodel, $specifications, $issues, $picture, $code;
+    try {
+        include("connexionvb.php");
 
-        try {
-            include("connexionvb.php");
-
-            // Validate email field
-            if (empty($email) || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
-                echo "Please enter a valid email address.";
-                return;
-            }
-            if (isset($_FILES['picture'])) {
-                $picture = $_FILES['picture']['name'];
-                $picture_tmp = $_FILES['picture']['tmp_name'];
-                move_uploaded_file($picture_tmp, "uploads/" . $picture);
-            }
-            
-
-
-            $sql = "INSERT INTO repair (date,fullname, email, device, other, devicename, devicemodel, specification, issues, pictures, code) VALUES (:date,:fullname, :email, :device, :other, :devicename, :devicemodel, :specifications, :issues, :picture, :code)";
-            $sql = $db->prepare($sql);
-            $sql->bindvalue(':date', $date);
-            $sql->bindvalue(':fullname', $fullname);
-            $sql->bindvalue(':email', $email);
-            $sql->bindvalue(':device', $device);
-            $sql->bindvalue(':other', $other);
-            $sql->bindvalue(':devicename', $devicename);
-            $sql->bindvalue(':devicemodel', $devicemodel);
-            $sql->bindvalue(':specifications', $specifications);
-            $sql->bindvalue(':issues', $issues);
-            $sql->bindvalue(':picture', $picture);
-            $sql->bindvalue(':code', $code); 
-            $sql->execute();
-
-            if ($sql) {
-                echo "Request submitted successfully";
-              
-            } else {
-                echo "Error";
-            }
-
-            $sql->closecursor();
-        } catch (Exception $e) {
-            die('Erreur:' . $e->getMessage());
+        // Validate email field
+        if (empty($email) || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            echo "Please enter a valid email address.";
+            return;
         }
+
+        if (isset($_FILES['picture'])) {
+            $picture = $_FILES['picture']['name'];
+            $picture_tmp = $_FILES['picture']['tmp_name'];
+            move_uploaded_file($picture_tmp, "uploads/" . $picture);
+        }
+
+        $sql = "INSERT INTO repair (date, fullname, email, device, other, devicename, devicemodel, specification, issues, pictures, code) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        $stmt = $db->prepare($sql);
+        $stmt->execute([$date, $fullname, $email, $device, $other, $devicename, $devicemodel, $specifications, $issues, $picture, $code]);
+
+        if ($stmt) {
+            echo "Request submitted successfully";
+        } else {
+            echo "Error";
+        }
+
+        $stmt->closeCursor();
+    } catch (Exception $e) {
+        die('Erreur:' . $e->getMessage());
     }
+}
    
     function scheduleMeeting($meetingDateTime) {
         global $date, $fullname, $email, $device, $other, $devicename, $devicemodel, $specifications, $issues, $picture, $code,$meetingTime;
