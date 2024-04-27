@@ -254,15 +254,15 @@ $meetingDate="";
 </form>
 <script>
     function showOtherDevice() {
-        var device = document.getElementById("device").value;
-        var otherDevice = document.getElementById("otherDevice");
+    var device = $("#device").val();
+    var otherDevice = $("#otherDevice");
 
-        if (device === "other") {
-            otherDevice.style.display = "block";
-        } else {
-            otherDevice.style.display = "none";
-        }
+    if (device === "other") {
+        otherDevice.show();
+    } else {
+        otherDevice.hide();
     }
+}
 </script>
 <script>
     function previewImage(event) {
