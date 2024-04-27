@@ -1,0 +1,417 @@
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-image: url('img2.jpg');
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    background-color: #444;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+}
+
+nav {
+    text-align: center;
+    padding: 10px 0;
+    opacity: 2;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    padding: 0 0px;
+}
+
+section {
+    padding: 20px;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+.logo {
+    width: 100px;
+}
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+}
+
+nav ul li {
+    margin-right: 20px;
+}
+
+.hero {
+    background-image: url('background.jpg');
+    background-size: cover;
+    text-align: center;
+    color: #fff;
+    padding: 100px 0;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+}
+h1{
+    color: black;
+    text-align: center;
+    top: 100%;
+}
+/*style*/
+.services {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+   text-align: center;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   display: flex;
+    justify-content: space-around;
+    
+}
+
+.service-box {
+    background-color: gray;
+    padding: 20px;
+    text-align: center;
+    text-decoration: none;
+    color: #333;
+    border-radius: 10px;
+    transition: transform 0.3s;
+    text-align: center;
+    width: 45%;
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+.service-box i {
+    margin-right: 10px;
+}
+
+.service-box u {
+    text-decoration: none;
+    color: #007bff;
+}
+nav a {
+    text-decoration: none;
+    color: #333;
+    margin: 0 50px;
+}
+.service-box b {
+    color: #dc3545;
+}
+.service-box:hover {
+    transform: scale(1.05);
+}
+.login{
+    text-align: right;
+    bottom: 2px;
+}
+p{
+    color: black;
+}
+.link{
+	float: center;
+	margin-top: -10px;
+   
+}
+.link a{
+	text-decoration: none;
+	text-transform: uppercase;
+	font-size: 16px;
+	font-weight: 500;
+	padding: 10px;
+}
+.link a:hover{
+	background-color: orange;
+	font-size: 18px;
+}
+.active{
+	background-color: blue;
+	font-size: 18px;
+}
+.contact-info{
+    color: black;
+}
+.login {
+    border: 2px solid #333;
+    padding: 10px;
+    width: 150px;
+    text-align: center;
+    border-radius: 5px;
+   
+}
+
+.login a {
+    text-decoration: none;
+    color: #333;
+}
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #6140401c;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+}
+
+header a {
+    text-decoration: none;
+    color: #342d2d00;
+}
+
+header h1 {
+    margin: 0;
+}
+
+.login {
+    float: right;
+    margin-top: 10px;
+}
+
+.link {
+    text-align: center;
+    margin-top: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #333;
+    margin: 0 10px;
+}
+
+section {
+    padding: 20px;
+    text-align: center;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+section {
+    background-color: #f4f4f4;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 5px;
+}
+
+h2 {
+    color: #333;
+    font-size: 24px;
+}
+
+p {
+    color: #666;
+    font-size: 16px;
+}
+
+
+
+
+
+footer {
+    text-align: center;
+    margin-top: 20px;
+    color: #999;
+    font-size: 14px;
+}
+.login {
+
+    padding: 10px;
+    width: 150px;
+    text-align: center;
+    border-radius: 5px;
+
+    
+    font-weight: bold;
+}
+
+.login a {
+    text-decoration: none;
+   
+}
+
+
+.red {
+    background-color: #ff0000;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    border-radius: 5px;
+    display: inline-block;
+    margin-top: 20px;
+}
+/* styles1.css */
+
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+}
+
+.login a {
+    color: #fff;
+    text-decoration: none;
+}
+
+nav {
+    background-color: #444;
+    text-align: center;
+    padding: 10px 0;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+.services {
+    margin: 70px;
+}
+
+.service-box {
+    display: block;
+    background-color: #f4f4f4;
+    padding: 10px;
+    margin-bottom: 10px;
+    text-decoration: none;
+    color: #333;
+}
+
+.service-box i {
+    margin-right: 45px;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+}
+
+/* Responsive Design */
+@media only screen and (max-width: 600px) {
+    header img {
+        width: 150px;
+    }
+    header h1 {
+        font-size: 1.5em;
+    }
+    .service-box {
+        padding: 8px;
+    }
+}
+
+
+.login {
+
+    padding: 10px;
+    width: 150px;
+    text-align: center;
+    border-radius: 5px;
+
+    
+    font-weight: bold;
+}
+
+.login a {
+    text-decoration: none;
+   
+}
+
+
+.red {
+    background-color: #ff0000;
+    color: #fff;
+    padding: 10px;
+    text-align: left;
+    border-radius: 5px;
+    display: inline-block;
+    margin-top: 0px;
+}
+
+.red a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.red:hover {
+    background-color: #cc0000;
+}
+
+        body {
+            background-image: url('pic.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            animation: slide 20s infinite;
+        }
+
+        @keyframes slide {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+   
