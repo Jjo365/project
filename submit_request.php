@@ -1,37 +1,51 @@
 
 
 <?php
-    function enregistrer_un_form(){
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "project";
+  function enregistrer_un_form()
+{
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $dbname = "project";
 
-$conn = new mysqli($servername, $username, $password, $dbname);
+    try {
+        $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        
+        $date = $_POST['date'];
+        $fullname = $_POST['fullname'];
+        $address = $_POST['address'];
+        $device = $_POST['device'];
+        $other = $_POST['other'];
+        $devicename = $_POST['devicename'];
+        $devicemodel = $_POST['devicemodel'];
+        $specifications = $_POST['specifications'];
+        $issues = $_POST['issues'];
+        $picture = $_FILES['picture']['name'];
 
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+        $stmt = $conn->prepare("INSERT INTO repair (date, fullname, address, device, other, devicename, devicemodel, specifications, issues, picture) 
+                               VALUES (:date, :fullname, :address, :device, :other, :devicename, :devicemodel, :specifications, :issues, :picture)");
 
-$date = $_POST['date'];
-$fullname = $_POST['fullname'];
-$address = $_POST['address'];
-$device = $_POST['device'];
-$other = $_POST['other'];
-$devicename = $_POST['devicename'];
-$devicemodel = $_POST['devicemodel'];
-$specifications = $_POST['specifications'];
-$issues = $_POST['issues'];
-$picture = $_FILES['picture']['name'];
+        $stmt->bindParam(':date', $date);
+        $stmt->bindParam(':fullname', $fullname);
+        $stmt->bindParam(':address', $address);
+        $stmt->bindParam(':device', $device);
+        $stmt->bindParam(':other', $other);
+        $stmt->bindParam(':devicename', $devicename);
+        $stmt->bindParam(':devicemodel', $devicemodel);
+        $stmt->bindParam(':specifications', $specifications);
+        $stmt->bindParam(':issues', $issues);
+        $stmt->bindParam(':picture', $picture);
 
-$sql = "INSERT INTO repair (date, fullname, address, device, other, devicename, devicemodel, specifications, issues, picture) 
-        VALUES ('$date', '$fullname', '$address', '$device', '$other', '$devicename', '$devicemodel', '$specifications', '$issues', '$picture')";
-
-if ($conn->query($sql) === TRUE) {
-    echo "Request submitted successfully";
-} else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
-}
+        if ($stmt->execute()) {
+            echo "Demande soumise avec succès";
+        } else {
+            echo "Erreur lors de l'exécution de la requête : " . $stmt->errorInfo()[2];
+        }
+    } catch (PDOException $e) {
+        echo "Erreur de connexion à la base de données : " . $e->getMessage();
+    }
+} 
 
 $conn->close();
 $date = "";

@@ -12,32 +12,20 @@ require 'phpmailer/src/SMTP.php';
 
 //Create an instance; passing `true` enables exceptions
 if (isset($_POST["send"])) {
+    $to = 'blinglisa830@gmail.com';
+    $subject = $_POST["subject"];
+    $message = $_POST["message"];
+    $headers = "From: " . $_POST["email"] . "\r\n";
+    $headers .= "Reply-To: " . $_POST["email"] . "\r\n";
+    $headers .= "MIME-Version: 1.0\r\n";
+    $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
 
-  $mail = new PHPMailer(true);
-
-    //Server settings
-    $mail->isSMTP();                              //Send using SMTP
-    $mail->Host       = 'smtp.gmail.com';       //Set the SMTP server to send through
-    $mail->SMTPAuth   = true;             //Enable SMTP authentication
-    $mail->Username   = 'blinglisa830@gmail.com';   //SMTP write your email
-    $mail->Password   = 'urkcahqctyudkjbz';      //SMTP password
-    $mail->SMTPSecure = 'ssl';            //Enable implicit SSL encryption
-    $mail->Port       = 465;                                    
-
-    //Recipients
-    $mail->setFrom( $_POST["email"], $_POST["name"]); // Sender Email and name
-    $mail->addAddress('blinglisa830@gmail.com');     //Add a recipient email  
-    $mail->addReplyTo($_POST["email"], $_POST["name"]); // reply to sender email
-
-    //Content
-    $mail->isHTML(true);               //Set email format to HTML
-    $mail->Subject = $_POST["subject"];   // email subject headings
-    $mail->Body    = $_POST["message"]; //email message
-
-    // Success sent message alert
-    $mail->send();
-    echo
-    " 
+    if (mail($to, $subject, $message, $headers)) {
+        echo 'E-mail envoyé avec succès';
+    } else {
+        echo 'Échec de l\'envoi de l\'e-mail';
+    }
+}
     <script> 
      alert('Message was sent successfully!');
      document.location.href = 'index.php';

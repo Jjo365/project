@@ -43,51 +43,42 @@
   ini_set('display_startup_errors', 1);
   error_reporting(E_ALL);
   
-function enregistrer_un_contact(){
-    global  $name, $surname, $email, $contact, $message;
-    try
-    {
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
 
-        include("connexionvb.php");
-       $sql="INSERT INTO users (name, surname, email, contact, message) VALUES (:na, :sur, :em, :con, :mes)";
-          $sql=$db->prepare($sql);
-       $sql->bindvalue(':na', $name);
-       $sql->bindvalue(':sur', $surname);
-       $sql->bindvalue(':em', $email);
-       $sql->bindvalue(':con', $contact);
-       $sql->bindvalue(':mes', $message);
-       $sql->execute();
-       if($sql){
-          echo "<h4><font color=blue>THANK YOU!</font></h4>"; 
-           // Send email to user
-           $to = $email;
-$subject = "Thank you for contacting us";
-$message1 = "Dear $name,\n\nThank you for contacting Computer Repair Services. We have received your message and will get back to you as soon as possible.\n\nBest regards,\nComputer Repair Services";
-$headers = "From: blinglisa830@gmail.com";
-// Enable TLS encryption
-ini_set("smtp_tls", "tls");
-// Set the SMTP server and port with encryption
-ini_set("SMTP", "smtp.gmail.com");
-ini_set("smtp_port", "587");
-ini_set("sendmail_from", "blinglisa830@gmail.com");
-ini_set("sendmail_path", "C:\wamp\bin\sendmail\sendmail.exe -t -i");
+function enregistrer_un_contact()
+{
+    global $name, $surname, $email, $contact, $message;
+    
+    require 'vendor/autoload.php'; // Chemin vers le fichier autoload.php de PHPMailer
+    
+    $mail = new PHPMailer(true); // Création d'une nouvelle instance de PHPMailer
+    
+    try {
+        // Configuration du serveur SMTP
+        $mail->isSMTP();
+        $mail->Host = 'smtp.gmail.com';
+        $mail->Port = 587;
+        $mail->SMTPAuth = true;
+        $mail->SMTPSecure = 'tls';
+        $mail->Username = 'your-email@gmail.com'; // Remplacez par votre adresse e-mail
+        $mail->Password = 'your-password'; // Remplacez par votre mot de passe
 
-
-
-if (mail($to, $subject, $message1, $headers)) {
-    echo "<h4><font color=blue>Email sent successfully!</font></h4>";
-} else {
-    echo "<h4><font color=red>Email sending failed. Please check your settings.</font></h4>";
-}
-
-       }else{
-           echo"<h4><font color=red>Echec d'insertion</font></h4>";
-       }
-       $sql->closecursor();
-    }
-    catch(Exception $e)
-    {
-       die('Erreur:'.$e->getMessage());
+        // Paramètres de l'e-mail
+        $mail->setFrom('your-email@gmail.com', 'Computer Repair Services'); // Remplacez par votre adresse e-mail et nom d'envoi
+        $mail->addAddress($email, $name); // Adresse e-mail et nom du destinataire
+        $mail->Subject = 'Merci de nous avoir contactés'; // Sujet de l'e-mail
+        
+        // Corps de l'e-mail
+        $mail->Body = "Cher $name,\n\nMerci de nous avoir contactés. Nous avons bien reçu votre message et nous vous répondrons dès que possible.\n\nCordialement,\nComputer Repair Services";
+        
+        // Envoi de l'e-mail
+        $mail->send();
+        
+        echo "<h4><font color='blue'>Merci !</font></h4>";
+        echo "<h4><font color='blue'>E-mail envoyé avec succès !</font></h4>";
+    } catch (Exception $e) {
+        echo "<h4><font color='red'>Erreur lors de l'envoi de l'e-mail : " . $mail->ErrorInfo . "</font></h4>";
     }
 }
 
